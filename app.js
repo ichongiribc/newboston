@@ -11,7 +11,6 @@ var fetch = require('./routes/fetch');
 
 
 var app = express();
-app.locals.videodata = require('./videodata.json');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
