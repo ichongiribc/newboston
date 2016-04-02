@@ -8,5 +8,11 @@
   <% include templates/header.ejs %>
   <h1><%= title %></h1>
     <p>Welcome to <b>Bromley</b> <%= title %></p>
+    <h3><%= videodata.categoryName %></h3>
+    <ul>
+        <% videodata.categories.forEach(function (item) { %>
+        <li><%= item.categoryName %></li>
+        <% }); %>
+    </ul>
   </body>
 </html>
