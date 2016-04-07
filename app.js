@@ -6,10 +6,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var mongoose = require('mongoose');
+
 var routes = require('./routes/index');
-var fetch = require('./routes/fetch');
+var adverts = require('./routes/fetch');
 
+// MongoDB
+mongoose.connect('mongodb://52.49.130.246:27017/bromley');
 
+// Express
 var app = express();
 
 // view engine setup
@@ -25,7 +30,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/fetch', fetch);
+app.use('/fetch', adverts);
 
 
 // catch 404 and forward to error handler
