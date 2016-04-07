@@ -31,7 +31,7 @@ router.route('/adverts').get(function(req, res) {
     var offset = 0;
 
 
-    var xml = "<freecycle>";
+    var xml = '<?xml version="1.0" encoding="utf-8"?><freecycle>';
     //if (req.params.id !== "" && validator.isMongoId(req.params.id)) {
 
         Advert.find({}, function (err, resultSet) {
@@ -64,7 +64,7 @@ router.route('/adverts').get(function(req, res) {
                 });
             });
 
-            xml += "</freecycle>";
+            xml += '</freecycle>';
             res.set('Content-Type', 'text/xml');
             res.send(xml);
 
@@ -126,7 +126,7 @@ router.route('/adverts/:aid').get(function(req, res) {
     //    res.json(advert);
     //});
 
-    var xml = "<freecycle>";
+    var xml = '<?xml version="1.0" encoding="utf-8"?><freecycle>';
     //if (req.params.id !== "") {
 
     Advert.findOne({'adverts._id': req.params.aid}, function (err, result) {
@@ -163,7 +163,7 @@ router.route('/adverts/:aid').get(function(req, res) {
                     }
                 }
 
-        xml = "<freecycle/>";
+        xml = '<freecycle/>';
         res.set('Content-Type', 'text/xml');
         return res.send(xml);;
         });
